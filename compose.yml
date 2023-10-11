@@ -1,0 +1,40 @@
+version: '3.1'
+services:
+  app:
+    container_name: app
+    tty: true
+    build:
+      context: ./
+      dockerfile: devops/app/Dockerfile
+    volumes:
+      - ./:/var/www/
+    ports:
+      - "8080:8080"
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    env_file:
+      - devops/mongo/mongo.env
+
+  zookeeper:
+    container_name: keeper
+    image: confluentinc/cp-zookeeper:latest
+    env_file:
+      - devops/kafka/zookeeper.env
+    ports:
+      - "22181:2181"
+
+  kafka:
+    container_name: kafka
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:9092"
+    env_file:
+      - devops/kafka/kafka.env
+
