@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+import reactor.kafka.sender.SenderResult
 import java.util.UUID
 
 @RestController
@@ -35,7 +36,7 @@ class EmployeeController(
 
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: UUID): Void? = service
+    fun delete(@PathVariable id: UUID): SenderResult<Void>? = service
         .delByEmpId(id)
         .then(
             producer.send(EmployeeDeletedEvent(id))

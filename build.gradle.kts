@@ -37,8 +37,9 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("jakarta.validation:jakarta.validation-api:3.0.2")
-
+	implementation("org.apache.kafka:kafka-clients:3.6.1")
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.projectreactor.kafka:reactor-kafka:1.3.22")
 
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
