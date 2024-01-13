@@ -16,6 +16,21 @@ spring:
   kafka:
     bootstrap-servers: kafka:29092
     consumer:
+      client: "employee-default-client"
+      group: "employee-default-group"
+      commitInterval: 5000
+      commitBatchSize: 0
+      receiverTopic: "employee-events"
+      autoCommitIntervalMs: 5000
+      requestTimeoutMs: 30_000
+      heartbeatIntervalMs: 3000
+      backtrackTimeSeconds: 900
+      maxPollTimeoutMs: 10000
+      concurrency: 2
+      sessionTimeoutMs: 10_000
+      maxPollIntervalMs: 300_000
+      maxPollRecords: 250
+      retryBackoffMs: 1000
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
