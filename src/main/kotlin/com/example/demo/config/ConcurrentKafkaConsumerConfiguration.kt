@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component
 @Component
 @EnableKafka
 @EnableConfigurationProperties
-class ReactiveKafkaConsumerConfiguration(
+class ConcurrentKafkaConsumerConfiguration(
 
     @Value("\${spring.kafka.bootstrap-servers}")
     private val servers: String,
