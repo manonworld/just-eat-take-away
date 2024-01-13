@@ -8,7 +8,7 @@ import reactor.kafka.sender.SenderOptions
 
 
 @Configuration
-class ReactiveKafkaTemplateConfiguration {
+class ReactiveKafkaTemplateProducerConfiguration {
 
     @Bean
     fun reactiveKafkaProducerTemplate(
