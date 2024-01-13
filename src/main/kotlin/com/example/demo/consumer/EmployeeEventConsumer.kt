@@ -1,14 +1,8 @@
 package com.example.demo.consumer
 
-import com.example.demo.config.MESSAGE_TOPIC_NAME
-import com.example.demo.config.GROUP_ID
 import jakarta.annotation.PostConstruct
 import jakarta.annotation.PreDestroy
-import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.kafka.annotation.KafkaListener
-import org.springframework.kafka.support.Acknowledgment
 import org.springframework.stereotype.Component
 import reactor.core.Disposables
 import reactor.core.publisher.Flux
